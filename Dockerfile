@@ -6,23 +6,28 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 # Install system dependencies (ffmpeg + libs for opencv/mediapipe)
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-       ffmpeg \
-       build-essential \
-       libgl1 \
-       libglib2.0-0 \
-       libsm6 \
-       libxrender1 \
-       libxext6 \
-    && rm -rf /var/lib/apt/lists/*
+     && apt-get install -y --no-install-recommends \
+         ca-certificates \
+         wget \
+         git \
+         ffmpeg \
+         build-essential \
+         libgl1 \
+         libglib2.0-0 \
+         libsm6 \
+         libxrender1 \
+         libxext6 \
+     && apt-get clean \
+     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Copy requirements
 COPY requirements.txt /app/requirements.txt
 
 # Upgrade pip and install PyTorch CPU wheel first (reduces chance of building from source).
 # Using PyTorch's CPU wheel index; change if you need CUDA-enabled build.
-RUN pip install --upgrade pip \
+RUN pip install --upgrade pip setuptools wheel \
     && pip install --no-cache-dir -f https://download.pytorch.org/whl/cpu/torch_stable.html torch \
     && pip install --no-cache-dir -r /app/requirements.txt
 
@@ -41,4 +46,4 @@ COPY code/ /app/code/
 WORKDIR /app
 
 # By default, do nothing useful; user runs the script they need.
-CMD ["bash","-c","echo 'Image built (contains dataset). Use run commands in DOCKER_RUN.md to execute scripts.'"]
+CMD ["sh","-c","echo 'Image built (may contain dataset). Use run commands in DOCKER_RUN.md to execute scripts.'"]
