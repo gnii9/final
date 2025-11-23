@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: testpass
+      MYSQL_DATABASE: vsl_ai_test
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_test_data:/var/lib/mysql
+
+  backend:
+    build:
+      context: ./VSign_AI_SudoCode2025_new
+      dockerfile: Dockerfile.test
+    container_name: vsign_test_backend
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: vsl_ai_test
+      DB_USER: root
+      DB_PASSWORD: testpass
+    depends_on:
+      - mysql
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./VSign_AI_SudoCode2025_new:/app
+
+  frontend:
+    build:
+      context: ./frontend-test
+      dockerfile: Dockerfile
+    container_name: vsign_test_frontend
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend-test:/app
+
+volumes:
+  mysql_test_data:
+    driver: local

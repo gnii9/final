@@ -1,0 +1,7 @@
+Django==5.2.8
+djangorestframework==3.16.1
+mysqlclient==2.2.7
+python-dotenv==1.0.1
+uvicorn==0.22.0
+fastapi==0.115.0
+requests
