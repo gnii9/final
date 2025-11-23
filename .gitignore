@@ -1,0 +1,24 @@
+## Python
+__pycache__/
+*.py[cod]
+.venv/
+env/
+venv/
+
+## Node
+node_modules/
+build/
+dist/
+
+## OS
+Thumbs.db
+desktop.ini
+
+## Docker
+*.tar
+
+## Data
+# By default we ignore `dataset/` because it can be very large.
+dataset/
+
+# If you want to include dataset in the repo, remove or comment the previous line.
