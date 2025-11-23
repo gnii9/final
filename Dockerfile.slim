@@ -1,0 +1,30 @@
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV DEBIAN_FRONTEND=noninteractive
+
+WORKDIR /app
+
+# Minimal system deps for quick smoke tests (opencv/ffmpeg)
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       ca-certificates \
+       ffmpeg \
+       libgl1 \
+       libglib2.0-0 \
+       libsm6 \
+       libxrender1 \
+       libxext6 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Install minimal Python packages for quick validation
+COPY requirements.txt /app/requirements.txt
+RUN pip install --upgrade pip setuptools wheel \
+    && pip install --no-cache-dir -r /app/requirements.txt
+
+# Copy code only (no dataset)
+COPY code/ /app/code/
+
+CMD ["sh","-c","echo 'Slim image ready. Run smoke tests with the helper script.'"]
