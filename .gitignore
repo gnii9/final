@@ -35,3 +35,8 @@ frontend-test/node_modules/
 # Exclude local IDE/editor folders
 .vscode/
 .idea/
+**/.git.bak/
+VSign_AI_SudoCode2025_new/.git.bak/
+frontend-test/.git.bak/
+**/.git.bak
+frontend-test/frontend-react/node_modules/

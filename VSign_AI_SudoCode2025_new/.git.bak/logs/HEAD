@@ -1,5 +1,0 @@
-0000000000000000000000000000000000000000 382df067b6645f2033ee646c8eefcdabb9fc473c Your Name <you@example.com> 1763733287 +0700	clone: from https://github.com/mswng/VSign_AI_SudoCode2025.git
-382df067b6645f2033ee646c8eefcdabb9fc473c 1d8b31ab628eebe6aedae366772c9df6a557933b Your Name <you@example.com> 1763745734 +0700	commit: test
-1d8b31ab628eebe6aedae366772c9df6a557933b 473e41cdcdc0e27426272b2c9e0ce0beaf85b524 Your Name <you@example.com> 1763745762 +0700	checkout: moving from main to Đang
-473e41cdcdc0e27426272b2c9e0ce0beaf85b524 e94a66e96b94094594afcc84afae59d7e9b57c97 Your Name <you@example.com> 1763745784 +0700	pull origin main: Fast-forward
-e94a66e96b94094594afcc84afae59d7e9b57c97 e53508136fb43cff7336a85dbb3c7dd77d6f5ce2 Your Name <you@example.com> 1763800828 +0700	commit: new
