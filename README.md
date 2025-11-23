@@ -155,33 +155,5 @@ Tell me which of the above you'd like next.
 
 ---
 
-## Push only the three folders you specified
-
-If you want to push exactly these three folders to GitHub:
-
-- `MultiVSL`
-- `VSign_AI_SudoCode2025_new`
-- `frontend-react`
-
-I added a helper script `push_to_github.ps1` to automate init/commit/push for those folders plus the helper files we created (README, .gitignore, .gitattributes, run_all.ps1, DOCKER_RUN.md).
-
-Quick example (PowerShell) to push to a new GitHub repo:
-
-```powershell
-# from repository root (d:\MultiVSL\MultiVSL)
-.\push_to_github.ps1 -RemoteUrl "https://github.com/yourname/yourrepo.git"
-```
-
-If your dataset is large, run with Git LFS:
-
-```powershell
-.\push_to_github.ps1 -RemoteUrl "https://github.com/yourname/yourrepo.git" -UseLFS
-```
-
-The script will:
-- initialize git (if needed),
-- optionally enable Git LFS and track `dataset/**`,
-- add the three folders and helper files,
-- commit and push to the provided remote URL.
-
-If you prefer manual control, follow the `Git` section above to add/commit only the folders you want.
+# Dataset 
+"https://drive.google.com/drive/folders/1YkSdYEcQt1KCVq6d1W5D2u9roeBbarxD?usp=drive_link"
