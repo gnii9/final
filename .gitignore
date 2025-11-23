@@ -22,3 +22,16 @@ desktop.ini
 dataset/
 
 # If you want to include dataset in the repo, remove or comment the previous line.
+
+# Ignore common virtual envs inside project folders
+**/venv/
+**/.venv/
+**/env/
+
+# Frontend node modules
+frontend-react/node_modules/
+frontend-test/node_modules/
+
+# Exclude local IDE/editor folders
+.vscode/
+.idea/

@@ -1,0 +1,13 @@
+.venv
+__pycache__/
+.git
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+build/
+dist/
+**/__pycache__
+Thumbs.db
+desktop.ini
